@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
-#include "libs/BMP.h"
-#include "libs/QDBMP/QDBMP.h"
+#include "BMP.h"
+#include "QDBMP.h"
 
 #define NORMAL_ARGUMENTS_COUNT 3
 #define error(...) (fprintf(stderr, __VA_ARGS__))

@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include "libs/BMP.h"
+#include "BMP.h"
 #include <math.h>
 
 #define NORMAL_ARGS_COUNT 2
