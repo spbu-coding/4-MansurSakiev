@@ -41,7 +41,7 @@ typedef struct BMPv3 {
     unsigned char* data;
 } BMPv3;
 
-BMPv3* read_BMPv3_file(char* filename);
+BMPv3* read_BMPv3_f(char* filename);
 
 void write_BMPv3_file(BMPv3* bmp, char* filename);
 
@@ -51,7 +51,7 @@ int	read_header(BMPv3* bmp, FILE* f);
 
 BMPv3_STATUS BMP_get_error();
 
-const char* BMP_get_error_description();
+const char* BMP_get_error_declaration();
 
 #define BMP_ERROR_CHECK(output_file, return_value) \
 	if (BMP_get_error() != BMPv3_OK) \
