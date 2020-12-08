@@ -78,29 +78,29 @@ int main(int argc, char* argv[]) {
         write_BMPv3_file(image, output_filename);
         BMP_ERROR_CHECK(stderr, -1);
     } else if (realization == THEIRS) {
-        BMP* image = BMP_ReadFile(input_filename);
+        BMP their_image = BMP_ReadFile(input_filename);
         BMP_CHECK_ERROR(stdout, -2);
-        unsigned long int width = BMP_GetWidth(image);
-        unsigned long int height = BMP_GetHeight(image);
+        unsigned long int width = BMP_GetWidth(&their_image);
+        unsigned long int height = BMP_GetHeight(&their_image);
         unsigned char r, g, b;
-        if (*image->Header.BitsPerPixel== 24) {
+        if (their_image.Header.BitsPerPixel== 24) {
             for (unsigned long int x = 0; x < width; ++x) {
                 for (unsigned long int y = 0 ;y < height; ++y) {
-                    BMP_GetPixelRGB(image, x, y, &r, &g, &b);
-                    BMP_SetPixelRGB(image, x, y, 255 - r, 255 - g, 255 - b);
+                    BMP_GetPixelRGB(&their_image, x, y, &r, &g, &b);
+                    BMP_SetPixelRGB(&their_image, x, y, 255 - r, 255 - g, 255 - b);
                 }
             }
-        } else if (*image->Header.BitsPerPixel == 8) {
+        } else if (their_image.Header.BitsPerPixel == 8) {
             for (int i = 0; i < PALETTE_SIZE_8bbp; i++) {
                 if ((i + 1) % 4 != 0) {
-                    image->Palette[i] = ~image->Palette[i];
+                    their_image->Palette[i] = ~their_image->Palette[i];
                 }
             }
         } else {
             error("%s", "File is not a supported BMP variant");
             return -1;
         }
-        BMP_WriteFile(image, output_filename);
+        BMP_WriteFile(&their_image, output_filename);
         BMP_CHECK_ERROR(stdout, -1);
     }
     return 0;
