@@ -83,14 +83,14 @@ int main(int argc, char* argv[]) {
         unsigned long int width = BMP_GetWidth(image);
         unsigned long int height = BMP_GetHeight(image);
         unsigned char r, g, b;
-        if (image.Header.BitsPerPixel == 24) {
+        if (*image->Header.BitsPerPixel== 24) {
             for (unsigned long int x = 0; x < width; ++x) {
                 for (unsigned long int y = 0 ;y < height; ++y) {
                     BMP_GetPixelRGB(image, x, y, &r, &g, &b);
                     BMP_SetPixelRGB(image, x, y, 255 - r, 255 - g, 255 - b);
                 }
             }
-        } else if (image->Header.BitsPerPixel == 8) {
+        } else if (*image->Header.BitsPerPixel == 8) {
             for (int i = 0; i < PALETTE_SIZE_8bbp; i++) {
                 if ((i + 1) % 4 != 0) {
                     image->Palette[i] = ~image->Palette[i];
