@@ -56,7 +56,7 @@ const char* BMP_get_error_declaration();
 #define BMP_ERROR_CHECK(output_file, return_value) \
 	if (BMP_get_error() != BMPv3_OK) \
 	{\
-		fprintf((output_file), "%s\n", BMP_get_error_description());\
+		fprintf((output_file), "%s\n", BMP_get_error_declaration());\
 		return(return_value);	\
 	} \
 
