@@ -57,7 +57,7 @@ int main(int argc, char* argv[]) {
         return -1;
     }
     if (realization == MINE) {
-        BMPv3* image = read_BMPv3_file(input_filename);
+        BMPv3* image = read_BMPv3_f(input_filename);
         BMP_ERROR_CHECK(stderr, -2);
         if (image->header.b_p_p == 24) {
             for (unsigned long int i = 0; i < image->header.width * image->header.height * BYTES_COUNT_IN_PIXEL; i++) {

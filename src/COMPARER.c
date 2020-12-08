@@ -108,9 +108,9 @@ int main(int argc, char* argv[]) {
     if (!scan_arguments(argc, argv, input_filename1, input_filename2)) {
         return -1;
     }
-    BMPv3* image1 = read_BMPv3_file(input_filename1);
+    BMPv3* image1 = read_BMPv3_f(input_filename1);
     BMP_ERROR_CHECK(stderr, -2);
-    BMPv3* image2 = read_BMPv3_file(input_filename2);
+    BMPv3* image2 = read_BMPv3_f(input_filename2);
     BMP_ERROR_CHECK(stderr, -2);
     if (compare_images(image1, image2)) {
         return -1;
