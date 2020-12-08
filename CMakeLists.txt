@@ -4,5 +4,5 @@ project(tests LANGUAGES C)
 set(CMAKE_C_STANDARD 99)
 
 add_executable(converter src/CONVERTER.c src/libs/bmp.c src/libs/qdbmp.c )
-add_executable(comparer src/COMPARER.c src/libs/bmp.c -lm)
+add_executable(comparer src/COMPARER.c src/libs/bmp.c )
 
