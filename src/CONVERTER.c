@@ -83,7 +83,7 @@ int main(int argc, char* argv[]) {
         unsigned long int width = BMP_GetWidth(image);
         unsigned long int height = BMP_GetHeight(image);
         unsigned char r, g, b;
-        if (image->Header.BitsPerPixel == 24) {
+        if (image.Header.BitsPerPixel == 24) {
             for (unsigned long int x = 0; x < width; ++x) {
                 for (unsigned long int y = 0 ;y < height; ++y) {
                     BMP_GetPixelRGB(image, x, y, &r, &g, &b);
