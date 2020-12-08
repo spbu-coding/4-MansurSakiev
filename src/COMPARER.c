@@ -100,6 +100,7 @@ int scan_arguments(int count_of_arguments, char** arguments,
     strcpy(input_filename1, arguments[1]);
     strcpy(input_filename2, arguments[2]);
     return 1;
+}
 
 
 int main(int argc, char* argv[]) {
