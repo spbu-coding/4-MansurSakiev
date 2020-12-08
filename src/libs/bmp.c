@@ -1,4 +1,4 @@
-#include "BMP.h"
+#include "bmp.h"
 #include <stdlib.h>
 
 #define BMP_size_palettes_8 (256 * 4)
